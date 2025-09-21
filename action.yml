@@ -1,0 +1,12 @@
+name: 'gpg Quite'
+description: 'Make gpg quite by default'
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        mkdir -p ~/.gnupg
+        chmod 700 ~/.gnupg
+        echo "quiet" >>~/.gnupg/gpg.conf
+        echo "batch" >>~/.gnupg/gpg.conf
+        chmod 600 ~/.gnupg/*
+      shell: bash
